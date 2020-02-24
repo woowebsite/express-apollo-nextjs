@@ -13,6 +13,7 @@ dist/
 # ide info
 .vscode/
 .idea/
+.next/
 
 # Optional eslint cache
 .eslintcache
