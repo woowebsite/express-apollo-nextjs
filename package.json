@@ -30,7 +30,7 @@
     "mysql2": "^1.6.1",
     "reflect-metadata": "^0.1.12",
     "schemaglue": "^4.0.2",
-    "sequelize": "^4.39.0",
+    "sequelize": "^5.15.1",
     "sequelize-typescript": "^0.6.6",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
