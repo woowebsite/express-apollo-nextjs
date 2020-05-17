@@ -41,6 +41,8 @@ const server = new ApolloServer({
 });
 server.applyMiddleware({ app });
 
+app.get('/', (req, res) => res.send('Hello World!'))
+
 app.listen({ port: ENV.PORT }, async () => {
     console.log(`🚀 Server ready at http://localhost:${ENV.PORT}${server.graphqlPath}`);
     let err;
