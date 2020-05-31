@@ -1,6 +1,5 @@
 import { Table, Column, Model, HasMany } from 'sequelize-typescript';
 import { User } from './user.model'
-
 @Table({timestamps: true})
 export class Company extends Model<Company> {
 

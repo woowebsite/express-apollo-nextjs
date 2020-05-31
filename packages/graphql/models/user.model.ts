@@ -2,13 +2,13 @@ import { Table, Column, Model, HasMany, BelongsTo, ForeignKey, BeforeSave } from
 import { Company } from "./company.model";
 import * as bcrypt from 'bcrypt';
 import to from 'await-to-js';
-import * as jsonwebtoken from 'jsonwebtoken';
-import { ENV } from '../../config/env.config'
+import * as jsonwebtoken from'jsonwebtoken';
+import { ENV } from '../config';
 
-@Table({ timestamps: true })
+@Table({timestamps: true})
 export class User extends Model<User> {
 
-  @Column({ primaryKey: true, autoIncrement: true })
+  @Column({primaryKey: true, autoIncrement: true})
   id: number;
 
   @Column
@@ -17,7 +17,7 @@ export class User extends Model<User> {
   @Column
   lastName: string;
 
-  @Column({ unique: true })
+  @Column({unique: true})
   email: string;
 
   @Column
@@ -35,42 +35,42 @@ export class User extends Model<User> {
   @BeforeSave
   static async hashPassword(user: User) {
     let err;
-    if (user.changed('password')) {
-      let salt, hash;
-      [err, salt] = await to(bcrypt.genSalt(10));
-      if (err) {
-        throw err;
-      }
+    if (user.changed('password')){
+        let salt, hash;
+        [err, salt] = await to(bcrypt.genSalt(10));
+        if(err) {
+          throw err;
+        }
 
-      [err, hash] = await to(bcrypt.hash(user.password, salt));
-      if (err) {
-        throw err;
-      }
-      user.password = hash;
+        [err, hash] = await to(bcrypt.hash(user.password, salt));
+        if(err) {
+          throw err;
+        }
+        user.password = hash;
     }
   }
 
   async comparePassword(pw) {
-    let err, pass;
-    if (!this.password) {
-      throw new Error('Does not have password');
-    }
+      let err, pass;
+      if(!this.password) {
+        throw new Error('Does not have password');
+      }
 
-    [err, pass] = await to(bcrypt.compare(pw, this.password));
-    if (err) {
-      throw err;
-    }
+      [err, pass] = await to(bcrypt.compare(pw, this.password));
+      if(err) {
+        throw err;
+      }
 
-    if (!pass) {
-      throw 'Invalid password';
-    }
+      if(!pass) {
+        throw 'Invalid password';
+      }
 
-    return this;
+      return this;
   };
 
-  getJwt() {
-    return 'Bearer ' + jsonwebtoken.sign({
-      id: this.id,
-    }, ENV.JWT_ENCRYPTION, { expiresIn: ENV.JWT_EXPIRATION });
+  getJwt(){
+      return 'Bearer ' + jsonwebtoken.sign({
+          id: this.id,
+      }, ENV.JWT_ENCRYPTION, { expiresIn: ENV.JWT_EXPIRATION });
   }
 }

@@ -1,9 +1,0 @@
-{
-    "development": {
-        "username": "graphql",
-        "password": "123456",
-        "database": "graphql",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
-    }
-}
