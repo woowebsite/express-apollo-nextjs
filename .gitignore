@@ -6,6 +6,7 @@ node_modules/
 
 # Compiled ts files
 dist/
+.next
 
 # OS X hidden file
 .DS_Store
