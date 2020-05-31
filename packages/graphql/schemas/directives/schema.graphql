@@ -1,0 +1,2 @@
+directive @isAuth on FIELD_DEFINITION
+directive @isAuthUser on FIELD_DEFINITION

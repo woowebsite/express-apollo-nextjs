@@ -1,17 +1,9 @@
 import { ApolloServer, gql } from 'apollo-server-express';
+import modules from './modules'
 
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
 
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!',
-  },
-};
-
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({
+  modules
+});
 
 export default server;
