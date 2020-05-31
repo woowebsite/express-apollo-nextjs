@@ -7,7 +7,7 @@
     "start": "ts-node index.ts",
     "dev": "nodemon index.ts"
   },
-  "author": "givehug",
+  "author": "woowebsite",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",

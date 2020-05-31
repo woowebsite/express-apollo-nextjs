@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "woowebsite",
   "license": "ISC",
   "dependencies": {
     "@types/bluebird": "^3.5.24",
