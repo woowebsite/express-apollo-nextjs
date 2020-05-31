@@ -14,3 +14,7 @@ yarn dev
 ```
 
 open `http://localhost:3000`
+
+
+# SQL Sequelizer
+sequelize-auto -h localhost -d graphql -u graphql -x 123456 -p 3306  --dialect mysql -c "E:\HoiNhiepAnh\graphql-express-migrating-mysql-master\tutorial_assets\sequelize-auto-settings.json" -o "E:\HoiNhiepAnh\graphql-express-migrating-mysql-master\app\models"

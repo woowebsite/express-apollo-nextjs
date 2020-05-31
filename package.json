@@ -1,9 +1,9 @@
 {
-  "name": "monorepo",
+  "name": "express-apollo-nextjs",
   "version": "1.0.0",
-  "description": "this is going to be da bomb",
+  "description": "One repo using Apollo and Nextjs with Express",
   "main": "index.js",
-  "author": "givehug",
+  "author": "woowebsite",
   "license": "ISC",
   "scripts": {
     "build": "yarn workspace @monorepo/client run build",
