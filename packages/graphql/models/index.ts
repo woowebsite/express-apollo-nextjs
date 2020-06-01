@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
-import { ENV } from '../config/env.config'
+import { ENV } from '../config/env.config';
 
 export const sequelize = new Sequelize({
         host: ENV.DB_HOST,
