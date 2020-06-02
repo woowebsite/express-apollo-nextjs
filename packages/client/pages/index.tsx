@@ -1,12 +1,15 @@
-import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import Layout from '../components/Layout';
-import gql from 'graphql-tag';
-import { withApollo } from '../apollo/apollo';
+import React from "react";
+import { useQuery } from "@apollo/react-hooks";
+import Layout from "../components/Layout";
+import gql from "graphql-tag";
+import { withApollo } from "../apollo/apollo";
 
 const QUERY = gql`
-  query GetHello {
-    hello
+  query {
+    getCompany(where: { id: 1 }) {
+      id
+      name
+    }
   }
 `;
 
@@ -19,7 +22,7 @@ const NOSSR = () => {
   return (
     <Layout>
       <h1>This should be rendered on client side</h1>
-      <pre>Data: {data.hello}</pre>
+      <pre>Data: {data.getCompany.name}</pre>
       <button onClick={() => refetch()}>Refetch</button>
     </Layout>
   );
