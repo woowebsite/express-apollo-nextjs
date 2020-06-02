@@ -1,0 +1,25 @@
+@import 'components/kit-core/mixins';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/* CAROUSEL */
+
+.carousel-indicators {
+  li {
+    opacity: 0.5;
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+// dark theme
+body.kit__dark {
+  .carousel-indicators {
+    li {
+      &.active {
+        opacity: 1;
+        background-color: $primary;
+      }
+    }
+  }
+}

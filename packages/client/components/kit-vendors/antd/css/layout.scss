@@ -1,0 +1,27 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  .ant-layout {
+    min-height: 100vh;
+    min-width: 0;
+    background: none;
+  }
+
+  .ant-layout-header {
+    padding: 0;
+    line-height: normal;
+    height: auto;
+    background: none;
+  }
+
+  .ant-layout-footer {
+    padding: 0;
+    background: none;
+  }
+
+  .ant-layout.ant-layout-has-sider > .ant-layout,
+  .ant-layout.ant-layout-has-sider > .ant-layout-content {
+    overflow-x: initial;
+  }
+}

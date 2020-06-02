@@ -1,0 +1,13 @@
+@import '~components/kit-core/mixins.scss';
+
+.chartContainer {
+  height: 100%;
+  width: 120px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.chart {
+  height: 100%;
+}

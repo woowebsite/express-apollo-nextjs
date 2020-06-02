@@ -1,0 +1,52 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  .ant-select {
+    &-open {
+      .ant-select-selection {
+        border-color: $primary;
+      }
+    }
+
+    &-selection {
+      &:hover {
+        border-color: $primary;
+      }
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // DARK THEME STYLES
+  &.kit__dark {
+    .ant-select {
+      &-selection {
+        &--multiple {
+          .ant-select-selection__choice {
+            color: $dark-gray-1;
+            background: $primary;
+
+            &__remove {
+              color: $dark-gray-3;
+            }
+          }
+        }
+      }
+
+      &-dropdown-menu-item {
+        &-selected {
+          color: $dark-gray-1;
+          background: $primary;
+        }
+      }
+
+      &-tree-dropdown {
+        .ant-select-dropdown-search {
+          .ant-select-search__field {
+            background: $dark-gray-5;
+          }
+        }
+      }
+    }
+  }
+}
