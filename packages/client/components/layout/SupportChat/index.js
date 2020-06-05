@@ -1,33 +1,36 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import classNames from 'classnames'
-import General14 from 'components/kit-widgets/General/14'
-import style from './style.module.scss'
+import React from "react";
+import { connect } from "react-redux";
+import classNames from "classnames";
+import General14 from "components/kit-widgets/General/14";
+import style from "./style.module.scss";
 
-const mapStateToProps = ({ settings }) => ({ settings })
+const mapStateToProps = ({ settings }) => ({ settings });
 
-@connect(mapStateToProps)
 class SupportChat extends React.Component {
   toggleSupportChat = () => {
-    const { dispatch, settings } = this.props
-    const { isSupportChatOpen } = settings
+    const { dispatch, settings } = this.props;
+    const { isSupportChatOpen } = settings;
     dispatch({
-      type: 'settings/CHANGE_SETTING',
+      type: "settings/CHANGE_SETTING",
       payload: {
-        setting: 'isSupportChatOpen',
+        setting: "isSupportChatOpen",
         value: !isSupportChatOpen,
       },
-    })
-  }
+    });
+  };
 
   render() {
     const {
       settings: { isSupportChatOpen },
-    } = this.props
+    } = this.props;
 
     return (
       <div className={style.chat}>
-        <button onClick={this.toggleSupportChat} type="button" className={style.toggleButton}>
+        <button
+          onClick={this.toggleSupportChat}
+          type="button"
+          className={style.toggleButton}
+        >
           <i className={`${style.icon} fe fe-message-square mr-md-2`} />
           <span className="d-none d-md-inline">Support Chat</span>
         </button>
@@ -37,7 +40,9 @@ class SupportChat extends React.Component {
           })}
         >
           <div className="d-flex flex-wrap mb-2">
-            <div className="text-dark font-size-18 font-weight-bold mr-auto">Support Chat</div>
+            <div className="text-dark font-size-18 font-weight-bold mr-auto">
+              Support Chat
+            </div>
             <button
               onClick={this.toggleSupportChat}
               type="button"
@@ -49,8 +54,8 @@ class SupportChat extends React.Component {
           <General14 />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default SupportChat
+export default connect(mapStateToProps)(SupportChat);

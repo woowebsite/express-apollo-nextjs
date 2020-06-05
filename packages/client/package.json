@@ -36,6 +36,8 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-intl": "^3.12.1",
     "react-dom": "^16.13.1",
+    "next-redux-saga": "4.0.0",
+    "next-redux-wrapper": "2.0.0",
     "classnames": "^2.2.6",
     "node-sass": "4.14.1",
     "@rowno/sparkline": "^4.0.0",

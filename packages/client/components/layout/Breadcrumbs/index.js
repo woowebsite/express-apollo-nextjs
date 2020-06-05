@@ -9,7 +9,7 @@ const mapStateToProps = ({ menu }) => ({
 })
 
 @withRouter
-@connect(mapStateToProps)
+
 class Breadcrumbs extends React.Component {
   state = {
     breadcrumb: [],
@@ -98,4 +98,4 @@ class Breadcrumbs extends React.Component {
   }
 }
 
-export default Breadcrumbs
+export default connect(mapStateToProps)(Breadcrumbs)

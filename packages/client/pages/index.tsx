@@ -1,6 +1,5 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import Layout from "../components/Layout";
 import gql from "graphql-tag";
 import { withApollo } from "../apollo/apollo";
 import MainLayout from "../layouts/Main";

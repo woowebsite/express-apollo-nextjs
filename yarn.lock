@@ -11067,6 +11067,16 @@ new-github-release-url@^1.0.0:
   dependencies:
     type-fest "^0.4.1"
 
+next-redux-saga@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/next-redux-saga/-/next-redux-saga-4.0.0.tgz#7528d363fa49b3763871f445f932f4d15cc71d76"
+  integrity sha512-HQG2Yj5hDOwoN/rkdRlXsG5obYtOc9MbyORDFcGwKJoPeIRCBArB53xxuMPTGeoki6kjn0uReikEP8kOSuaHzw==
+
+next-redux-wrapper@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/next-redux-wrapper/-/next-redux-wrapper-2.0.0.tgz#74587381ff9c762cd85676d9739a51a3aeceed58"
+  integrity sha512-QcaEK7pUelShCk6Epajvp3MZrktt/0bVR0f2ssaZtQ270q80zLhKIKFkVZL8uwqXMnSJInZDSwcAhYhn8/Rpsw==
+
 next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"

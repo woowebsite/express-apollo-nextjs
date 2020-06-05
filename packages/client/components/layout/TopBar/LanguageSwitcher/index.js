@@ -1,26 +1,26 @@
-import React from 'react'
-import { Menu, Dropdown } from 'antd'
-import { connect } from 'react-redux'
-import styles from './style.module.scss'
+import React from "react";
+import { Menu, Dropdown } from "antd";
+import { connect } from "react-redux";
+import styles from "./style.module.scss";
 
-@connect(({ settings }) => ({ settings }))
+// @connect(({ settings }) => ({ settings }))
 class LanguageSwitcher extends React.Component {
   changeLanguage = ({ key }) => {
-    const { dispatch } = this.props
+    const { dispatch } = this.props;
     dispatch({
-      type: 'settings/CHANGE_SETTING',
+      type: "settings/CHANGE_SETTING",
       payload: {
-        setting: 'locale',
+        setting: "locale",
         value: key,
       },
-    })
-  }
+    });
+  };
 
   render() {
     const {
       settings: { locale },
-    } = this.props
-    const language = locale.substr(0, 2)
+    } = this.props;
+    const language = locale.substr(0, 2);
     const menu = (
       <Menu selectedKeys={[locale]} onClick={this.changeLanguage}>
         <Menu.Item key="en-US">
@@ -40,15 +40,15 @@ class LanguageSwitcher extends React.Component {
           简体中文
         </Menu.Item>
       </Menu>
-    )
+    );
     return (
-      <Dropdown overlay={menu} trigger={['click']} placement="bottomRight">
+      <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
         <div className={styles.dropdown}>
           <span className="text-uppercase">{language}</span>
         </div>
       </Dropdown>
-    )
+    );
   }
 }
 
-export default LanguageSwitcher
+export default connect(({ settings }) => ({ settings }))(LanguageSwitcher);
