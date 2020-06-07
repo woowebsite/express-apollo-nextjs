@@ -50,7 +50,6 @@
     "d3-dsv": "^1.2.0",
     "d3-format": "^1.4.3",
     "d3-time-format": "^2.2.3",
-    "firebase": "^7.9.3",
     "history": "^4.10.1",
     "lodash": "^4.17.15",
     "nprogress": "^0.2.0",
@@ -83,6 +82,7 @@
   "devDependencies": {
     "@types/react": "16.9.33",
     "typescript": "^3.8.3",
-    "@babel/plugin-proposal-decorators": "^7.8.3"
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "redux-devtools-extension": "2.13.8"
   }
 }

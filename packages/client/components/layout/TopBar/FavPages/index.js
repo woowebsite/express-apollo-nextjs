@@ -1,17 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { injectIntl } from "react-intl";
+// import { injectIntl } from "react-intl";
 import { Dropdown, Input, Tooltip, message } from "antd";
 import { Scrollbars } from "react-custom-scrollbars";
 import store from "store";
 import style from "./style.module.scss";
 
-const mapStateToProps = ({ menu }) => ({
-  menuData: menu.menuData,
-});
+// TODO: use instead of this.props
+// const mapStateToProps = ({ menu }) => ({
+//   menuData: menu.menuData,
+// });
 
-@injectIntl
+// TODO: Decorator instead wrapper
+// @injectIntl
 class FavPages extends React.Component {
   state = {
     searchText: "",
@@ -21,7 +23,7 @@ class FavPages extends React.Component {
 
   componentDidMount() {
     const pagesList = () => {
-      const { menuData = [] } = this.props;
+      const { menuData = [] } = this.props.menu;
       const _menuData = JSON.parse(JSON.stringify(menuData));
       const flattenItems = (items, key) =>
         items.reduce((flattenedItems, item) => {
@@ -89,7 +91,7 @@ class FavPages extends React.Component {
         return null;
       }
       return (
-        <Link to={item.url} className={style.link} key={item.key}>
+        <Link href={item.url} className={style.link} key={item.key}>
           <div
             className={`${style.setIcon} ${
               isActive ? style.setIconActive : ""
@@ -108,9 +110,6 @@ class FavPages extends React.Component {
   };
 
   render() {
-    const {
-      intl: { formatMessage },
-    } = this.props;
     const { searchText, favs } = this.state;
     const list = this.generatePageList(searchText);
 
@@ -120,7 +119,7 @@ class FavPages extends React.Component {
           <div className="card-body p-1 ">
             <div className="p-2">
               <Input
-                placeholder={formatMessage({ id: "topBar.findPages" })}
+                placeholder="Input here"
                 value={searchText}
                 onChange={this.changeSearchText}
                 allowClear
@@ -153,7 +152,7 @@ class FavPages extends React.Component {
         {favs.map((item) => {
           return (
             <Tooltip key={item.key} placement="bottom" title={item.title}>
-              <Link to={item.url} className={`${style.item} mr-2`}>
+              <Link href={item.url} className={`${style.item} mr-2`}>
                 <i className={`${style.icon} fe ${item.icon}`} />
               </Link>
             </Tooltip>
@@ -171,4 +170,4 @@ class FavPages extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(FavPages);
+export default connect(state=>state)(FavPages);

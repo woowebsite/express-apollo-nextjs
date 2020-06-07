@@ -1,7 +1,7 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
+// import { FormattedMessage } from 'react-intl'
 import { Menu, Dropdown } from 'antd'
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 import styles from './style.module.scss'
 
 class ProjectManagement extends React.Component {
@@ -10,23 +10,23 @@ class ProjectManagement extends React.Component {
       <Menu selectable={false}>
         <Menu.ItemGroup title="Active">
           <Menu.Item>
-            <Link to="/">Project Management</Link>
+            <Link href="/">Project Management</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/">User Interface Development</Link>
+            <Link href="/">User Interface Development</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/">Documentation</Link>
+            <Link href="/">Documentation</Link>
           </Menu.Item>
         </Menu.ItemGroup>
         <Menu.ItemGroup title="Inactive">
           <Menu.Item>
-            <Link to="/">Marketing</Link>
+            <Link href="/">Marketing</Link>
           </Menu.Item>
         </Menu.ItemGroup>
         <Menu.Divider />
         <Menu.Item>
-          <Link to="/">
+          <Link href="/">
             <i className="fe fe-settings mr-2" /> Settings
           </Link>
         </Menu.Item>
@@ -37,7 +37,7 @@ class ProjectManagement extends React.Component {
         <div className={styles.dropdown}>
           <i className={`${styles.icon} fe fe-database`} />
           <span className="d-none d-xl-inline">
-            <FormattedMessage id="topBar.projectManagement" />
+            topBar.projectManagement
           </span>
         </div>
       </Dropdown>

@@ -1,7 +1,6 @@
 import { all, takeEvery, put } from 'redux-saga/effects'
 import store from 'store'
 import qs from 'qs'
-import { history, store as reduxStore } from 'index'
 import actions from './actions'
 
 import AntDesignDarkTheme from 'components/kit-vendors/antd/themes/themeDark'
@@ -31,8 +30,8 @@ export function* SET_PRIMARY_COLOR({ payload: { color } }) {
     body.appendChild(styleEl)
   }
 
-  yield addStyles()
-  yield reduxStore.dispatch({
+  yield addStyles();
+  put({
     type: 'settings/CHANGE_SETTING',
     payload: {
       setting: 'primaryColor',
@@ -42,7 +41,7 @@ export function* SET_PRIMARY_COLOR({ payload: { color } }) {
 }
 
 export function* TOGGLE_THEME() {
-  const currentTheme = reduxStore.getState().settings.theme
+  const currentTheme = yield select(state => state.settings.theme)
   const nextTheme = currentTheme === 'light' ? 'dark' : 'light'
   const toggleTheme = () => {
     if (nextTheme === 'light') {
@@ -50,8 +49,9 @@ export function* TOGGLE_THEME() {
       window.less.modifyVars(AntDesignLightTheme)
     } else {
       document.querySelector('body').classList.add('kit__dark')
-      window.less.modifyVars(AntDesignDarkTheme)
-      reduxStore.dispatch({
+      window.less.modifyVars(AntDesignDarkTheme);
+
+      put({
         type: 'settings/CHANGE_SETTING',
         payload: {
           setting: 'menuColor',
@@ -61,17 +61,19 @@ export function* TOGGLE_THEME() {
     }
   }
 
-  yield toggleTheme()
-  yield reduxStore.dispatch({
+  yield toggleTheme();
+  put({
     type: 'settings/CHANGE_SETTING',
     payload: {
       setting: 'theme',
       value: nextTheme,
     },
-  })
+  });
 }
 
 export function* SETUP() {
+  if (!global.window) return
+
   // load settings from url on app load
   const changeSettings = search => {
     const query = qs.parse(search, { ignoreQueryPrefix: true })
@@ -88,26 +90,28 @@ export function* SETUP() {
           value = query[key]
           break
       }
-      reduxStore.dispatch({
+      put({
         type: 'settings/CHANGE_SETTING',
         payload: {
           setting: key,
           value,
         },
-      })
+      });
     })
   }
-  yield changeSettings(history.location.search)
-  yield history.listen(params => {
-    const { search } = params
-    changeSettings(search)
-  })
+
+  // TODO: Change setting by location
+  // yield changeSettings(history.location.search)
+  // yield history.listen(params => {
+  //   const { search } = params
+  //   changeSettings(search)
+  // })
 
   // set primary color on app load
   const primaryColor = () => {
     const color = store.get('app.settings.primaryColor')
     if (color) {
-      reduxStore.dispatch({
+      put({
         type: 'settings/SET_PRIMARY_COLOR',
         payload: {
           color,
@@ -134,7 +138,7 @@ export function* SETUP() {
     const currentState = global.window.innerWidth < 768
     const prevState = store.get('app.settings.isMobileView')
     if (currentState !== prevState || load) {
-      reduxStore.dispatch({
+      put({
         type: 'settings/CHANGE_SETTING',
         payload: {
           setting: 'isMobileView',
@@ -149,7 +153,7 @@ export function* SETUP() {
     const shouldToggle = global.window.innerWidth < 1024
     const prevState = store.get('app.settings.isMenuCollapsed')
     if (shouldToggle || prevState) {
-      reduxStore.dispatch({
+      put({
         type: 'settings/CHANGE_SETTING',
         payload: {
           setting: 'isMenuCollapsed',

@@ -5,12 +5,16 @@ import MenuLeft from "./MenuLeft";
 import MenuTop from "./MenuTop";
 import style from "./style.module.scss";
 
-const mapStateToProps = ({ settings }) => ({
-  menuLayoutType: settings.menuLayoutType,
-  isMobileMenuOpen: settings.isMobileMenuOpen,
-  isMobileView: settings.isMobileView,
-  leftMenuWidth: settings.leftMenuWidth,
-});
+// TODO: using mapStateToProps instead this.props.menus 
+// const mapStateToProps = ({ settings, ...others }) => {
+//   return ({
+//     menuLayoutType: settings.menuLayoutType,
+//     isMobileMenuOpen: settings.isMobileMenuOpen,
+//     isMobileView: settings.isMobileView,
+//     leftMenuWidth: settings.leftMenuWidth,
+//   })
+
+// };
 
 class Menu extends React.PureComponent {
   touchStartPrev = 0;
@@ -61,7 +65,7 @@ class Menu extends React.PureComponent {
       isMobileView,
       menuLayoutType,
       leftMenuWidth,
-    } = this.props;
+    } = this.props.settings;
 
     const Menu = () => {
       if (isMobileView) {
@@ -98,4 +102,4 @@ class Menu extends React.PureComponent {
   }
 }
 
-export default connect(mapStateToProps)(Menu);
+export default connect(state=>state)(Menu);

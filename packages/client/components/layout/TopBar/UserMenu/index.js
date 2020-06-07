@@ -1,5 +1,4 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import { Menu, Dropdown, Avatar, Badge } from "antd";
 import styles from "./style.module.scss";
@@ -32,18 +31,18 @@ class ProfileMenu extends React.Component {
       <Menu selectable={false}>
         <Menu.Item>
           <strong>
-            <FormattedMessage id="topBar.profileMenu.hello" />,{" "}
+            topBar.profileMenu.hello
             {user.name || "Anonymous"}
           </strong>
           <div>
             <strong className="mr-1">
-              <FormattedMessage id="topBar.profileMenu.billingPlan" />:{" "}
+              topBar.profileMenu.billingPlan
             </strong>
             Professional
           </div>
           <div>
             <strong>
-              <FormattedMessage id="topBar.profileMenu.role" />:{" "}
+              topBar.profileMenu.role
             </strong>
             {user.role}
           </div>
@@ -52,12 +51,12 @@ class ProfileMenu extends React.Component {
         <Menu.Item>
           <div>
             <strong>
-              <FormattedMessage id="topBar.profileMenu.email" />:{" "}
+              topBar.profileMenu.email
             </strong>
             {user.email}
             <br />
             <strong>
-              <FormattedMessage id="topBar.profileMenu.phone" />:{" "}
+              topBar.profileMenu.phone
             </strong>
             {user.phone || "— "}
           </div>
@@ -66,14 +65,14 @@ class ProfileMenu extends React.Component {
         <Menu.Item>
           <a href="#" onClick={(e) => e.preventDefault()}>
             <i className="fe fe-user mr-2" />
-            <FormattedMessage id="topBar.profileMenu.editProfile" />
+            topBar.profileMenu.editProfile
           </a>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item>
           <a href="#" onClick={this.logout}>
             <i className="fe fe-log-out mr-2" />
-            <FormattedMessage id="topBar.profileMenu.logout" />
+            topBar.profileMenu.logout
           </a>
         </Menu.Item>
       </Menu>
@@ -99,4 +98,4 @@ class ProfileMenu extends React.Component {
   }
 }
 
-export default connect(({ user }) => ({ user }))(ProfileMenu);
+export default connect(state => state)(ProfileMenu);

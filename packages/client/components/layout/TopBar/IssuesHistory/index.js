@@ -1,7 +1,7 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
+// import { FormattedMessage } from 'react-intl'
 import { Menu, Dropdown } from 'antd'
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 import styles from './style.module.scss'
 
 class IssuesHistory extends React.Component {
@@ -9,43 +9,43 @@ class IssuesHistory extends React.Component {
     const menu = (
       <Menu selectable={false}>
         <Menu.Item>
-          <Link to="/">Current Search</Link>
+          <Link href="/">Current Search</Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to="/">Search for issues</Link>
+          <Link href="/">Search for issues</Link>
         </Menu.Item>
         <Menu.Divider />
         <Menu.ItemGroup title="Opened">
           <Menu.Item>
-            <Link to="/">
+            <Link href="/">
               <i className="fe fe-check-circle mr-2" /> CUI-125 Project Implemen...
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/">
+            <Link href="/">
               <i className="fe fe-check-circle mr-2" /> CUI-147 Active History Is...
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/">
+            <Link href="/">
               <i className="fe fe-check-circle mr-2" /> CUI-424 Ionicons Integrat...
             </Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/">More...</Link>
+            <Link href="/">More...</Link>
           </Menu.Item>
         </Menu.ItemGroup>
         <Menu.ItemGroup title="Filters">
           <Menu.Item>
-            <Link to="/">My Open Issues</Link>
+            <Link href="/">My Open Issues</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/">Reported by Me</Link>
+            <Link href="/">Reported by Me</Link>
           </Menu.Item>
         </Menu.ItemGroup>
         <Menu.Divider />
         <Menu.Item>
-          <Link to="/">
+          <Link href="/">
             <i className="fe fe-settings mr-2" /> Settings
           </Link>
         </Menu.Item>
@@ -56,7 +56,7 @@ class IssuesHistory extends React.Component {
         <div className={styles.dropdown}>
           <i className={`${styles.icon} fe fe-folder`} />
           <span className="d-none d-xl-inline">
-            <FormattedMessage id="topBar.issuesHistory" />
+            topBar.issuesHistory
           </span>
         </div>
       </Dropdown>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd'
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 import style from '../style.module.scss'
 
 @Form.create()
@@ -34,7 +34,7 @@ class ForgotPassword extends React.Component {
               <strong>Reset my password</strong>
             </Button>
           </Form>
-          <Link to="/auth/login" className="kit__utils__link font-size-16">
+          <Link href="/auth/login" className="kit__utils__link font-size-16">
             <i className="fe fe-arrow-left mr-1 align-middle" />
             Go to Sign in
           </Link>

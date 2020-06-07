@@ -1,9 +1,9 @@
 import React from 'react'
-import { injectIntl } from 'react-intl'
+// import { injectIntl } from 'react-intl'
 import { Input, Icon, Checkbox } from 'antd'
 import style from './style.module.scss'
 
-@injectIntl
+// @injectIntl
 class Search extends React.Component {
   state = {
     showSearch: false,
@@ -52,15 +52,13 @@ class Search extends React.Component {
   }
 
   render() {
-    const {
-      intl: { formatMessage },
-    } = this.props
+   
     const { showSearch, searchText } = this.state
     return (
       <div className="d-inline-block mr-4">
         <Input
           className={style.extInput}
-          placeholder={formatMessage({ id: 'topBar.typeToSearch' })}
+          placeholder={"Input here"}
           prefix={<Icon type="search" style={{ color: 'rgba(0,0,0,.25)' }} />}
           style={{ width: 200 }}
           onFocus={this.showLiveSearch}
@@ -82,7 +80,7 @@ class Search extends React.Component {
                 value={searchText}
                 onChange={this.changeSearchText}
                 id="livesearchInput"
-                placeholder={formatMessage({ id: 'topBar.typeToSearch' })}
+                placeholder={"Input here"}
                 ref={this.handleNode}
               />
               <ul className={style.options}>

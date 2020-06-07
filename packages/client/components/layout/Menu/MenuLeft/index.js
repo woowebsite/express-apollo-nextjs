@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import Link from 'next/link';
 import { Menu, Layout } from "antd";
 import classNames from "classnames";
 import store from "store";
@@ -8,18 +9,19 @@ import { Scrollbars } from "react-custom-scrollbars";
 import { find } from "lodash";
 import style from "./style.module.scss";
 
-const mapStateToProps = ({ menu, settings, user }) => ({
-  menuData: menu.menuData,
-  isMenuCollapsed: settings.isMenuCollapsed,
-  isMobileView: settings.isMobileView,
-  isMobileMenuOpen: settings.isMobileMenuOpen,
-  isMenuUnfixed: settings.isMenuUnfixed,
-  isMenuShadow: settings.isMenuShadow,
-  leftMenuWidth: settings.leftMenuWidth,
-  menuColor: settings.menuColor,
-  logo: settings.logo,
-  role: user.role,
-});
+// TODO: using MaptoState instead of this.props
+// const mapStateToProps = ({ menu, settings, user }) => ({
+//   menuData: menu.menuData,
+//   isMenuCollapsed: settings.isMenuCollapsed,
+//   isMobileView: settings.isMobileView,
+//   isMobileMenuOpen: settings.isMobileMenuOpen,
+//   isMenuUnfixed: settings.isMenuUnfixed,
+//   isMenuShadow: settings.isMenuShadow,
+//   leftMenuWidth: settings.leftMenuWidth,
+//   menuColor: settings.menuColor,
+//   logo: settings.logo,
+//   role: user.role,
+// });
 
 @withRouter
 class MenuLeft extends React.Component {
@@ -42,7 +44,7 @@ class MenuLeft extends React.Component {
   }
 
   setSelectedKeys = (props) => {
-    const { menuData } = this.props;
+    const { menuData } = this.props.menu;
     const flattenItems = (items, key) =>
       items.reduce((flattenedItems, item) => {
         flattenedItems.push(item);
@@ -51,9 +53,10 @@ class MenuLeft extends React.Component {
         }
         return flattenedItems;
       }, []);
+      
     const selectedItem = find(flattenItems(menuData, "children"), [
       "url",
-      props.location.pathname,
+      this.props.router.location.pathname,
     ]);
     this.setState({
       selectedKeys: selectedItem ? [selectedItem.key] : [],
@@ -95,7 +98,8 @@ class MenuLeft extends React.Component {
   };
 
   generateMenuItems = () => {
-    const { menuData = [], role } = this.props;
+    const { menuData = [] } = this.props.menu;
+    const { role } = this.props.user;
     const generateItem = (item) => {
       const { key, title, url, icon, disabled, count } = item;
       if (item.category) {
@@ -117,18 +121,18 @@ class MenuLeft extends React.Component {
                 )}
               </a>
             ) : (
-              <Link to={url}>
-                <span className={style.title}>{title}</span>
-                {count && (
-                  <span className="badge badge-success ml-2">{count}</span>
-                )}
-                {icon && (
-                  <span
-                    className={`${icon} ${style.icon} icon-collapsed-hidden`}
-                  />
-                )}
-              </Link>
-            )}
+                <Link href={url}>
+                  <span className={style.title}>{title}</span>
+                  {count && (
+                    <span className="badge badge-success ml-2">{count}</span>
+                  )}
+                  {icon && (
+                    <span
+                      className={`${icon} ${style.icon} icon-collapsed-hidden`}
+                    />
+                  )}
+                </Link>
+              )}
           </Menu.Item>
         );
       }
@@ -207,18 +211,18 @@ class MenuLeft extends React.Component {
     } = this.props;
     const menuSettings = isMobileView
       ? {
-          width: leftMenuWidth,
-          collapsible: false,
-          collapsed: false,
-          onCollapse: this.onCollapse,
-        }
+        width: leftMenuWidth,
+        collapsible: false,
+        collapsed: false,
+        onCollapse: this.onCollapse,
+      }
       : {
-          width: leftMenuWidth,
-          collapsible: true,
-          collapsed: isMenuCollapsed,
-          onCollapse: this.onCollapse,
-          breakpoint: "lg",
-        };
+        width: leftMenuWidth,
+        collapsible: true,
+        collapsed: isMenuCollapsed,
+        onCollapse: this.onCollapse,
+        breakpoint: "lg",
+      };
 
     const menu = this.generateMenuItems();
 
@@ -301,4 +305,4 @@ class MenuLeft extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(MenuLeft);
+export default connect(state=>state)(MenuLeft);

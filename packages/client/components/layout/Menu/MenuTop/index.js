@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Menu } from "antd";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import Link from 'next/link';
 import classNames from "classnames";
 import store from "store";
 import { find } from "lodash";
@@ -86,7 +87,7 @@ class MenuTop extends React.Component {
                 )}
               </a>
             ) : (
-              <Link to={url}>
+              <Link href={url}>
                 {icon && <span className={`${icon} ${style.icon}`} />}
                 <span className={style.title}>{title}</span>
                 {count && (

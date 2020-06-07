@@ -6,29 +6,30 @@ import { throttle } from "lodash";
 import classNames from "classnames";
 import style from "./style.module.scss";
 
-const mapStateToProps = ({ settings }) => ({
-  isSidebarOpen: settings.isSidebarOpen,
-  isMenuCollapsed: settings.isMenuCollapsed,
-  isMenuShadow: settings.isMenuShadow,
-  isMenuUnfixed: settings.isMenuUnfixed,
-  menuLayoutType: settings.menuLayoutType,
-  menuColor: settings.menuColor,
-  authPagesColor: settings.authPagesColor,
-  isTopbarFixed: settings.isTopbarFixed,
-  isContentMaxWidth: settings.isContentMaxWidth,
-  isAppMaxWidth: settings.isAppMaxWidth,
-  isGrayBackground: settings.isGrayBackground,
-  isGrayTopbar: settings.isGrayTopbar,
-  isCardShadow: settings.isCardShadow,
-  isSquaredBorders: settings.isSquaredBorders,
-  isBorderless: settings.isBorderless,
-  routerAnimation: settings.routerAnimation,
-  locale: settings.locale,
-  theme: settings.theme,
-  primaryColor: settings.primaryColor,
-  leftMenuWidth: settings.leftMenuWidth,
-  logo: settings.logo,
-});
+// TODO: Using mapStateToProps instead this.props.settings
+// const mapStateToProps = ({ settings }) => ({
+//   isSidebarOpen: settings.isSidebarOpen,
+//   isMenuCollapsed: settings.isMenuCollapsed,
+//   isMenuShadow: settings.isMenuShadow,
+//   isMenuUnfixed: settings.isMenuUnfixed,
+//   menuLayoutType: settings.menuLayoutType,
+//   menuColor: settings.menuColor,
+//   authPagesColor: settings.authPagesColor,
+//   isTopbarFixed: settings.isTopbarFixed,
+//   isContentMaxWidth: settings.isContentMaxWidth,
+//   isAppMaxWidth: settings.isAppMaxWidth,
+//   isGrayBackground: settings.isGrayBackground,
+//   isGrayTopbar: settings.isGrayTopbar,
+//   isCardShadow: settings.isCardShadow,
+//   isSquaredBorders: settings.isSquaredBorders,
+//   isBorderless: settings.isBorderless,
+//   routerAnimation: settings.routerAnimation,
+//   locale: settings.locale,
+//   theme: settings.theme,
+//   primaryColor: settings.primaryColor,
+//   leftMenuWidth: settings.leftMenuWidth,
+//   logo: settings.logo,
+// });
 
 class Sidebar extends React.Component {
   state = {
@@ -171,7 +172,7 @@ class Sidebar extends React.Component {
       theme,
       leftMenuWidth,
       logo,
-    } = this.props;
+    } = this.props.settings;
 
     const { defaultColor, primaryColor } = this.state;
 
@@ -524,7 +525,7 @@ class Sidebar extends React.Component {
             style={{ bottom: "calc(50%)" }}
             className={`${style.cui__sidebar__toggleButton} ${style.color} ${
               primaryColor === defaultColor ? style.reset : ""
-            }`}
+              }`}
           >
             <button
               type="button"
@@ -562,4 +563,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(Sidebar);
+export default connect(state=>state)(Sidebar);

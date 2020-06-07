@@ -17,9 +17,7 @@ class LanguageSwitcher extends React.Component {
   };
 
   render() {
-    const {
-      settings: { locale },
-    } = this.props;
+    const { locale } = this.props.settings;
     const language = locale.substr(0, 2);
     const menu = (
       <Menu selectedKeys={[locale]} onClick={this.changeLanguage}>
@@ -51,4 +49,4 @@ class LanguageSwitcher extends React.Component {
   }
 }
 
-export default connect(({ settings }) => ({ settings }))(LanguageSwitcher);
+export default connect(state => state)(LanguageSwitcher);

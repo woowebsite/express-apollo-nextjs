@@ -4,7 +4,8 @@ import classNames from "classnames";
 import General14 from "components/kit-widgets/General/14";
 import style from "./style.module.scss";
 
-const mapStateToProps = ({ settings }) => ({ settings });
+// TODO: Using mapStateToProps instead this.props.settings
+// const mapStateToProps = ({ settings }) => ({ settings });
 
 class SupportChat extends React.Component {
   toggleSupportChat = () => {
@@ -58,4 +59,4 @@ class SupportChat extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(SupportChat);
+export default connect(state=>state)(SupportChat);

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Layout } from 'antd'
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 import { withRouter } from 'react-router-dom'
 import classNames from 'classnames'
 import Sidebar from 'components/layout/Sidebar'
@@ -62,7 +62,7 @@ class AuthLayout extends React.PureComponent {
               </div>
               <div className="d-none d-sm-block">
                 <span className="mr-2">Don't have an account?</span>
-                <Link to="/auth/register" className="font-size-16 kit__utils__link">
+                <Link href="/auth/register" className="font-size-16 kit__utils__link">
                   Sign up
                 </Link>
               </div>

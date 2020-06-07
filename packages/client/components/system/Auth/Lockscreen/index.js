@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd'
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 import style from '../style.module.scss'
 
 @Form.create()
@@ -45,7 +45,7 @@ class Lockscreen extends React.Component {
         </div>
         <div className="text-center pt-2 mb-auto">
           <span className="mr-2">Already have an account?</span>
-          <Link to="/auth/login" className="kit__utils__link font-size-16">
+          <Link href="/auth/login" className="kit__utils__link font-size-16">
             Sign in
           </Link>
         </div>

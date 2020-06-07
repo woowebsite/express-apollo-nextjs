@@ -12,7 +12,7 @@ const STORED_SETTINGS = storedSettings => {
 
 const initialState = {
   ...STORED_SETTINGS({
-    authProvider: 'firebase', // firebase, jwt
+    authProvider: 'jwt', // firebase, jwt
     logo: 'Clean UI Pro',
     locale: 'en-US',
     isSidebarOpen: false,

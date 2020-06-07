@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Form, Input, Button, Radio, Tooltip } from 'antd'
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 import style from '../style.module.scss'
 
 @Form.create()
@@ -95,13 +95,13 @@ class Login extends React.Component {
               <strong>Sign in</strong>
             </Button>
           </Form>
-          <Link to="/auth/forgot-password" className="kit__utils__link font-size-16">
+          <Link href="/auth/forgot-password" className="kit__utils__link font-size-16">
             Forgot Password?
           </Link>
         </div>
         <div className="text-center pt-2 mb-auto">
           <span className="mr-2">Don't have an account?</span>
-          <Link to="/auth/register" className="kit__utils__link font-size-16">
+          <Link href="/auth/register" className="kit__utils__link font-size-16">
             Sign up
           </Link>
         </div>

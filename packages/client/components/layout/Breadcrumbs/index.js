@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Link from 'next/link';
 import { reduce } from 'lodash'
 import styles from './style.module.scss'
 
-const mapStateToProps = ({ menu }) => ({
-  menuData: menu.menuData,
-})
+// TODO: use statetoProps
+// const mapStateToProps = ({ menu }) => ({
+//   menuData: menu.menuData,
+// })
 
 @withRouter
-
 class Breadcrumbs extends React.Component {
   state = {
     breadcrumb: [],
@@ -24,7 +25,7 @@ class Breadcrumbs extends React.Component {
   }
 
   setBreadcrumbs = props => {
-    const { menuData } = this.props
+    const { menuData } = this.props.menu
     this.setState({
       breadcrumb: this.getBreadcrumb(props, menuData),
     })
@@ -52,7 +53,7 @@ class Breadcrumbs extends React.Component {
   }
 
   getBreadcrumb = (props, items) => {
-    const [activeMenuItem, ...path] = this.getPath(items, props.location.pathname)
+    const [activeMenuItem, ...path] = this.getPath(items, props.router.location.pathname)
 
     if (!activeMenuItem) {
       return null
@@ -90,7 +91,7 @@ class Breadcrumbs extends React.Component {
     return breadcrumb ? (
       <div className={styles.breadcrumbs}>
         <div className={styles.path}>
-          <Link to="/dashboard/alpha">Home</Link>
+          <Link href="/dashboard/alpha">Home</Link>
           {breadcrumb}
         </div>
       </div>
@@ -98,4 +99,4 @@ class Breadcrumbs extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(Breadcrumbs)
+export default connect(state=>state)(Breadcrumbs)

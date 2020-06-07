@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link';
 
 class Error404 extends React.Component {
   render() {
@@ -10,7 +10,7 @@ class Error404 extends React.Component {
           This page is deprecated, deleted, or does not exist at all
         </div>
         <div className="font-weight-bold font-size-70 mb-1">404 —</div>
-        <Link to="/" className="btn btn-outline-primary width-100">
+        <Link href="/" className="btn btn-outline-primary width-100">
           Go Back
         </Link>
       </div>
