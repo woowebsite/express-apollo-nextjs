@@ -1,0 +1,23 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  .ant-notification {
+    max-width: calc(100vw - 48px);
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // DARK THEME STYLES
+  &.kit__dark {
+    .ant-notification {
+      &-notice-message {
+        color: $white;
+      }
+      &-close-icon {
+        svg {
+          fill: $white;
+        }
+      }
+    }
+  }
+}

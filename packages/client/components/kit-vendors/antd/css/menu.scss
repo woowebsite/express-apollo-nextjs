@@ -1,0 +1,19 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // DARK THEME STYLES
+  &.kit__dark {
+    .ant-menu {
+      &-item {
+        &-group-title {
+          color: $dark-gray-2;
+        }
+        &-disabled {
+          color: $dark-gray-3 !important;
+        }
+      }
+    }
+  }
+}

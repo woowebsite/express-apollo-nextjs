@@ -1,0 +1,12 @@
+// Import mixins from "core" module
+@import 'components/kit-core/mixins';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/* JUMBOTRON */
+
+// dark theme
+body.kit__dark {
+  .jumbotron {
+    background: $dark-gray-4;
+  }
+}

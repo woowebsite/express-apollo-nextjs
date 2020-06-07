@@ -1,0 +1,27 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // DARK THEME STYLES
+  &.kit__dark {
+    .ant-card {
+      color: $dark-gray-1;
+      &-meta {
+        &-description {
+          color: $dark-gray-1;
+        }
+      }
+
+      &-actions {
+        background: $dark-gray-6;
+
+        > li {
+          .anticon {
+            color: $dark-gray-1;
+          }
+        }
+      }
+    }
+  }
+}

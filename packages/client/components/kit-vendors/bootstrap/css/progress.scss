@@ -1,0 +1,11 @@
+@import 'components/kit-core/mixins';
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/* PROGRESS */
+
+// dark theme
+body.kit__dark {
+  .progress {
+    background: $dark-gray-4;
+  }
+}

@@ -1,0 +1,16 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // DARK THEME STYLES
+  &.kit__dark {
+    .ant-collapse {
+      background: transparent;
+      &-header {
+        background: $dark-gray-6;
+        color: $dark-gray-1 !important;
+      }
+    }
+  }
+}

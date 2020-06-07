@@ -1,0 +1,103 @@
+// antd variables which will be observed for next replacement
+
+module.exports = [
+  '@font-family',
+
+  '@text-color',
+  '@primary-color',
+  '@info-color',
+  '@success-color',
+  '@processing-color',
+  '@error-color',
+  '@highlight-color',
+  '@warning-color',
+  '@normal-color',
+
+  // variables prevents wrong compilation for css var() use
+  '@primary-1',
+  '@primary-2',
+  '@primary-3',
+  '@primary-4',
+  '@primary-5',
+  '@primary-6',
+  '@primary-7',
+  '@primary-8',
+  '@primary-9',
+  '@primary-10',
+  '@picker-basic-cell-hover-with-range-color',
+  '@picker-date-hover-range-border-color',
+  '@slider-handle-color-focus',
+  '@slider-handle-color-focus-shadow',
+  '@slider-dot-border-color-active',
+  // end
+
+  '@body-background',
+  '@component-background',
+  '@heading-color',
+
+  '@border-color-base',
+  '@border-color-split',
+  '@border-color-inverse',
+  '@border-radius-base',
+  '@disabled-color',
+  '@disabled-bg',
+
+  '@btn-primary-color',
+  '@btn-primary-bg',
+  '@btn-default-color',
+  '@btn-default-bg',
+  '@btn-danger-color',
+  '@btn-danger-bg',
+  '@btn-danger-border',
+
+  '@link-color',
+  '@link-hover-color',
+  '@link-active-color',
+
+  '@item-active-bg',
+  '@item-hover-bg',
+
+  '@input-placeholder-color',
+  '@input-color',
+  '@input-addon-bg',
+  '@input-bg',
+  '@input-border-color',
+
+  '@alert-success-border-color',
+  '@alert-success-bg-color',
+  '@alert-success-icon-color',
+  '@alert-info-border-color',
+  '@alert-info-bg-color',
+  '@alert-info-icon-color',
+  '@alert-warning-border-color',
+  '@alert-warning-bg-color',
+  '@alert-warning-icon-color',
+  '@alert-error-border-color',
+  '@alert-error-bg-color',
+  '@alert-error-icon-color',
+
+  '@tabs-hover-color',
+  '@tabs-active-color',
+  '@tabs-card-active-color',
+  '@tabs-ink-bar-color',
+  '@tabs-highlight-color',
+
+  '@table-header-bg',
+  '@table-header-color',
+  '@table-footer-bg',
+  '@table-footer-color',
+  '@table-row-hover-bg',
+  '@table-selected-row-bg',
+  '@table-expanded-row-bg',
+
+  '@label-required-color',
+  '@label-color',
+
+  '@shadow-color',
+  '@box-shadow-base',
+  '@shadow-1-up',
+  '@shadow-1-down',
+  '@shadow-1-left',
+  '@shadow-1-right',
+  '@shadow-2',
+]

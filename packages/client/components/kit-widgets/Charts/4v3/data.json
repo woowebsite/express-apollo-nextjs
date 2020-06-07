@@ -1,0 +1,15 @@
+{
+  "series": [
+    {
+      "className": "ct-series-d",
+      "data": [
+        1,
+        5,
+        2,
+        5,
+        4,
+        7
+      ]
+    }
+  ]
+}

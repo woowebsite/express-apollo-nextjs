@@ -1,0 +1,15 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // DARK THEME STYLES
+  &.kit__dark {
+    .ant-empty {
+      svg * {
+        fill: $gray-5;
+        stroke: $gray-6;
+      }
+    }
+  }
+}

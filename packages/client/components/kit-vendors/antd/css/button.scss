@@ -1,0 +1,56 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  .ant-btn {
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: lighten($blue-light, 0%);
+      color: lighten($blue-light, 0%);
+    }
+    &-primary {
+      &:hover,
+      &:active,
+      &:focus {
+        background: lighten($blue-light, 0%);
+        border-color: lighten($blue-light, 0%);
+        color: $white;
+      }
+    }
+    &-danger {
+      &:hover,
+      &:active,
+      &:focus {
+        background: lighten($danger, 5%);
+        border-color: lighten($danger, 5%);
+        color: $white;
+      }
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // DARK THEME STYLES
+  &.kit__dark {
+    .ant-btn {
+      &-primary {
+        &:hover,
+        &:active,
+        &:focus {
+          background: lighten($blue-light, 0%);
+          border-color: lighten($blue-light, 0%);
+          color: $white;
+        }
+      }
+      &-danger {
+        &:hover,
+        &:active,
+        &:focus {
+          background: lighten($danger, 10%);
+          border-color: lighten($danger, 10%);
+          color: $white;
+        }
+      }
+    }
+  }
+}

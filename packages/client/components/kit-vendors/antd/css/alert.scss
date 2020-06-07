@@ -1,0 +1,54 @@
+// Import mixins
+@import '~components/kit-core/mixins.scss';
+
+body {
+  .ant-alert {
+    &-info {
+      background: #e6f7ff;
+    }
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////
+  // DARK THEME STYLES
+  &.kit__dark {
+    .ant-alert {
+      &-success {
+        .ant-alert-description {
+          color: $success !important;
+        }
+        .ant-alert-message {
+          color: $white !important;
+          font-weight: bold;
+        }
+      }
+      &-info {
+        background: $dark-gray-4;
+        .ant-alert-description {
+          color: $text !important;
+        }
+        .ant-alert-message {
+          color: $white !important;
+          font-weight: bold;
+        }
+      }
+      &-warning {
+        .ant-alert-description {
+          color: $warning !important;
+        }
+        .ant-alert-message {
+          color: $white !important;
+          font-weight: bold;
+        }
+      }
+      &-error {
+        .ant-alert-description {
+          color: $danger !important;
+        }
+        .ant-alert-message {
+          color: $white !important;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
