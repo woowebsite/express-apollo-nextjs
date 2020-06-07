@@ -16,6 +16,7 @@ module.exports = withCss(withSass(withLess({
     javascriptEnabled: true,
     modifyVars: themeVariables, // make your antd custom effective
   },
+  cssModules: true,
   webpack: (config, { isServer }) => {
     if (isServer) {
       const antStyles = /antd\/.*?\/style.*?/

@@ -21,9 +21,11 @@ class SupportChat extends React.Component {
   };
 
   render() {
+    console.log('style', { style });
+
     const {
-      settings: { isSupportChatOpen },
-    } = this.props;
+      isSupportChatOpen
+    } = this.props.settings;
 
     return (
       <div className={style.chat}>
@@ -59,4 +61,4 @@ class SupportChat extends React.Component {
   }
 }
 
-export default connect(state=>state)(SupportChat);
+export default connect(state => state)(SupportChat);

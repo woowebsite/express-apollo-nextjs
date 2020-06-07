@@ -122,16 +122,19 @@ export function* SETUP() {
   yield primaryColor()
 
   // set primary color on app load
-  const initTheme = () => {
-    const theme = store.get('app.settings.theme')
-    if (theme === 'dark') {
-      document.querySelector('body').classList.add('kit__dark')
-      global.window.less.modifyVars(AntDesignDarkTheme)
-    } else {
-      global.window.less.modifyVars(AntDesignLightTheme)
+  // TODO: remove global.window.less
+  if (global.window.less) {
+    const initTheme = () => {
+      const theme = store.get('app.settings.theme')
+      if (theme === 'dark') {
+        document.querySelector('body').classList.add('kit__dark')
+        global.window.less.modifyVars(AntDesignDarkTheme)
+      } else {
+        global.window.less.modifyVars(AntDesignLightTheme)
+      }
     }
+    yield initTheme()
   }
-  yield initTheme()
 
   // detect isMobileView setting on app load and window resize
   const isMobileView = (load = false) => {

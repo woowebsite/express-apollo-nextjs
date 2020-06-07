@@ -6,6 +6,8 @@ import withReduxSaga from 'next-redux-saga'
 
 import createStore from '../store';
 
+import '../assets/global.scss'
+
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
