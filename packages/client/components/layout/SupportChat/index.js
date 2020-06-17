@@ -21,8 +21,6 @@ class SupportChat extends React.Component {
   };
 
   render() {
-    console.log('style', { style });
-
     const {
       isSupportChatOpen
     } = this.props.settings;

@@ -33,6 +33,9 @@ const server = new ApolloServer({
   context: ({ req }) => {
     let nreq = <any>req;
     let user = nreq.user;
+
+    // Sync database
+    sequelize.sync()
     return {
       [EXPECTED_OPTIONS_KEY]: createContext(sequelize),
       user: user,
