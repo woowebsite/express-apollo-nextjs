@@ -16,5 +16,8 @@
   ],
   "engines": {
     "node": "14.x"
+  },
+  "dependencies": {
+    "next": "9.1.7"
   }
 }

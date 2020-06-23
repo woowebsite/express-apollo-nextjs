@@ -13,8 +13,23 @@ const themeVariables = lessToJS(
 
 module.exports = withCss(withSass(withLess({
   lessLoaderOptions: {
-    javascriptEnabled: true,
-    modifyVars: themeVariables, // make your antd custom effective
+    lessOptions: {
+      javascriptEnabled: true,
+      modifyVars: themeVariables, // make your antd custom effective
+    }
+  },
+  sassLoaderOptions: {
+    sassOptions: {
+      includePaths: [
+        path.resolve(__dirname, 'antd/dist/antd.css'),
+        path.resolve(__dirname, './assets/global.scss'),
+        path.resolve(__dirname, './components/styles/css/layout.scss'),
+        path.resolve(__dirname, './components/kit-core'),
+        path.resolve(__dirname, './components/kit-vendors'),
+        path.resolve(__dirname, './components/kit-widgets'),
+        path.resolve(__dirname, './components/styles'),
+      ],
+    },
   },
   cssModules: true,
   webpack: (config, { isServer }) => {

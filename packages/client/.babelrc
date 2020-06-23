@@ -4,13 +4,6 @@
   ],
   "plugins": [
     [
-      "import",
-      {
-        "libraryName": "antd",
-        "style": "css"
-      }
-    ],
-    [
       "@babel/plugin-proposal-decorators",
       {
         "decoratorsBeforeExport": true

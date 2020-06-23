@@ -21,6 +21,7 @@ const NOSSR = () => {
 
   return (
     <MainLayout>
+      <div className="card">xxx</div>
       <h1>This should be rendered on client side</h1>
       <pre>Data: {data.getCompany.name}</pre>
       <button onClick={() => refetch()}>Refetch</button>

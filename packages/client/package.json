@@ -30,7 +30,7 @@
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.3.4",
+    "next": "9.2.2",
     "next-with-apollo": "^5.0.0",
     "react": "^16.13.1",
     "react-custom-scrollbars": "^4.2.1",
@@ -84,6 +84,11 @@
     "@types/react": "16.9.33",
     "typescript": "^3.8.3",
     "@babel/plugin-proposal-decorators": "^7.8.3",
-    "redux-devtools-extension": "2.13.8"
+    "redux-devtools-extension": "2.13.8",
+    "sass-loader": "^8.0.2",
+    "less-loader": "^6.1.1",
+    "null-loader": "^4.0.0",
+    "sass-resources-loader": "2.0.3",
+    "next-plugin-antd": "^0.1.1"
   }
 }

@@ -1,13 +1,13 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
-@import '~components/kit-vendors/antd/style';
-@import '~components/kit-vendors/bootstrap/style';
-@import '~components/kit-core/style'; // Clean Ui KIT styles
-@import '~components/styles/style'; // Clean UI styles
-@import '~components/kit-vendors/nprogress/style';
-@import '~components/kit-vendors/chartist/style';
-@import '~components/kit-vendors/chartist-tooltip-plugin/style';
-@import '~components/kit-vendors/jvectormap/style';
-@import '~components/kit-vendors/react-sortable-tree/style';
+@import '../components/kit-vendors/antd/style';
+@import '../components/kit-vendors/bootstrap/style';
+@import '../components/kit-core/style'; // Clean Ui KIT styles
+@import '../components/styles/style'; // Clean UI styles
+@import '../components/kit-vendors/nprogress/style';
+@import '../components/kit-vendors/chartist/style';
+@import '../components/kit-vendors/chartist-tooltip-plugin/style';
+@import '../components/kit-vendors/jvectormap/style';
+@import '../components/kit-vendors/react-sortable-tree/style';
 @import '~c3/c3.min.css';
 @import '~react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-@import '~components/kit-vendors/react-draft-wysiwyg/style';
+@import '../components/kit-vendors/react-draft-wysiwyg/style';
