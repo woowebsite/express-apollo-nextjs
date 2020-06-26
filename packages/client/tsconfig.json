@@ -8,6 +8,9 @@
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "baseUrl": "./",
+    "paths": {
+      "~/*": ["./*"]
+    },
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import Layout from '../components/Layout';
+// import Layout from 'layouts/components/Layout';
 import gql from 'graphql-tag';
-import { withApollo } from '../apollo/apollo';
+import { withApollo } from 'apollo/apollo';
 
 const QUERY = gql`
   query GetHello {
@@ -17,11 +17,11 @@ const SSR = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <Layout>
+    <div>
       <h1>This should be rendered on server side</h1>
       <pre>Data: {data.hello}</pre>
       <button onClick={() => refetch()}>Refetch</button>
-    </Layout>
+    </div>
   );
 };
 

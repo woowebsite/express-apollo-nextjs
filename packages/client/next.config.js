@@ -33,6 +33,9 @@ module.exports = withCss(withSass(withLess({
   },
   cssModules: true,
   webpack: (config, { isServer }) => {
+    // Make root is default or any node_modules
+    config.resolve.modules = [__dirname, 'node_modules'];
+
     if (isServer) {
       const antStyles = /antd\/.*?\/style.*?/
       const origExternals = [...config.externals]
