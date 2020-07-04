@@ -7,7 +7,8 @@ import AntDesignDarkTheme from 'components/kit-vendors/antd/themes/themeDark'
 import AntDesignLightTheme from 'components/kit-vendors/antd/themes/themeLight'
 
 export function* CHANGE_SETTING({ payload: { setting, value } }) {
-  yield store.set(`app.settings.${setting}`, value)
+  // TODO: Save old settings to database instead localstorage
+  // yield store.set(`app.settings.${setting}`, value)
   yield put({
     type: 'settings/SET_STATE',
     payload: {
@@ -109,23 +110,24 @@ export function* SETUP() {
 
   // set primary color on app load
   const primaryColor = () => {
-    const color = store.get('app.settings.primaryColor')
-    if (color) {
-      put({
-        type: 'settings/SET_PRIMARY_COLOR',
-        payload: {
-          color,
-        },
-      })
-    }
+    // TODO: Save old settings to database instead localstorage
+    // const color = store.get('app.settings.primaryColor')
+    const color = '#4b7cf3';
+    put({
+      type: 'settings/SET_PRIMARY_COLOR',
+      payload: {
+        color,
+      },
+    })
   }
   yield primaryColor()
 
   // set primary color on app load
   // TODO: remove global.window.less
-  if (global.window.less) {
+  if (global.window.less && store) {
     const initTheme = () => {
-      const theme = store.get('app.settings.theme')
+      // TODO: Save old settings to database instead localstorage
+      const theme = 'light';
       if (theme === 'dark') {
         document.querySelector('body').classList.add('kit__dark')
         global.window.less.modifyVars(AntDesignDarkTheme)
@@ -139,7 +141,9 @@ export function* SETUP() {
   // detect isMobileView setting on app load and window resize
   const isMobileView = (load = false) => {
     const currentState = global.window.innerWidth < 768
-    const prevState = store.get('app.settings.isMobileView')
+    // TODO: Save old settings to database instead localstorage
+    // const prevState = store.get('app.settings.isMobileView')
+    const prevState = false;
     if (currentState !== prevState || load) {
       put({
         type: 'settings/CHANGE_SETTING',
@@ -150,11 +154,13 @@ export function* SETUP() {
       })
     }
   }
-
+  
   // detect viewport width on app load and window resize
   const isMenuToggled = () => {
     const shouldToggle = global.window.innerWidth < 1024
-    const prevState = store.get('app.settings.isMenuCollapsed')
+    // TODO: Save old settings to database instead localstorage
+    // const prevState = store.get('app.settings.isMenuCollapsed')
+    const prevState = false;
     if (shouldToggle || prevState) {
       put({
         type: 'settings/CHANGE_SETTING',

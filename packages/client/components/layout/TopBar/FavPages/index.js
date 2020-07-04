@@ -17,7 +17,7 @@ import style from "./style.module.scss";
 class FavPages extends React.Component {
   state = {
     searchText: "",
-    favs: store.get("app.topbar.favs") || [],
+    favs: [],
     pagesList: [],
   };
 
@@ -64,7 +64,8 @@ class FavPages extends React.Component {
     const isActive = favs.some((child) => child.url === item.url);
     if (isActive) {
       const filtered = favs.filter((child) => child.url !== item.url);
-      store.set("app.topbar.favs", filtered);
+      // TODO: Save old settings to database instead localstorage
+      // store.set("app.topbar.favs", filtered);
       this.setState({
         favs: filtered,
       });
@@ -76,7 +77,8 @@ class FavPages extends React.Component {
     }
     let items = [...favs];
     items.push(item);
-    store.set("app.topbar.favs", items);
+    // TODO: Save old settings to database instead localstorage
+    // store.set("app.topbar.favs", items);
     this.setState({
       favs: items,
     });

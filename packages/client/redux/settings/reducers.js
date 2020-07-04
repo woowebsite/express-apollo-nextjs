@@ -3,10 +3,13 @@ import actions from './actions'
 
 const STORED_SETTINGS = storedSettings => {
   const settings = {}
-  Object.keys(storedSettings).forEach(key => {
-    const item = store.get(`app.settings.${key}`)
-    settings[key] = typeof item !== 'undefined' ? item : storedSettings[key]
-  })
+  // TODO: Save old settings to database instead localstorage
+  // if (store && store.get) {
+  //   Object.keys(storedSettings).forEach(key => {
+  //     const item = store.get(`app.settings.${key}`)
+  //     settings[key] = typeof item !== 'undefined' ? item : storedSettings[key]
+  //   })
+  // }
   return settings
 }
 

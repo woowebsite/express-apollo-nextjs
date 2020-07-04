@@ -26,8 +26,8 @@ import style from "./style.module.scss";
 @withRouter
 class MenuLeft extends React.Component {
   state = {
-    selectedKeys: store.get("app.menu.selectedKeys") || [],
-    openedKeys: store.get("app.menu.openedKeys") || [],
+    selectedKeys: [],
+    openedKeys: [],
   };
 
   UNSAFE_componentWillMount() {
@@ -53,10 +53,11 @@ class MenuLeft extends React.Component {
         }
         return flattenedItems;
       }, []);
-      
+
     const selectedItem = find(flattenItems(menuData, "children"), [
       "url",
-      this.props.router.location.pathname,
+      //TODO: 
+      // this.props.router.location.pathname,
     ]);
     this.setState({
       selectedKeys: selectedItem ? [selectedItem.key] : [],
@@ -83,14 +84,16 @@ class MenuLeft extends React.Component {
   };
 
   onOpenChange = (openedKeys) => {
-    store.set("app.menu.openedKeys", openedKeys);
+    // TODO: Save old settings to database instead localstorage
+    // store.set("app.menu.openedKeys", openedKeys);
     this.setState({
       openedKeys,
     });
   };
 
   handleClick = (e) => {
-    store.set("app.menu.selectedKeys", [e.key]);
+    // TODO: Save old settings to database instead localstorage
+    // store.set("app.menu.selectedKeys", [e.key]);
     this.setState({
       selectedKeys: [e.key],
       // openedKeys: e.keyPath,
@@ -108,31 +111,9 @@ class MenuLeft extends React.Component {
       if (item.url) {
         return (
           <Menu.Item key={key} disabled={disabled}>
-            {item.target ? (
-              <a href={url} target={item.target} rel="noopener noreferrer">
-                <span className={style.title}>{title}</span>
-                {count && (
-                  <span className="badge badge-success ml-2">{count}</span>
-                )}
-                {icon && (
-                  <span
-                    className={`${icon} ${style.icon} icon-collapsed-hidden`}
-                  />
-                )}
-              </a>
-            ) : (
-                <Link href={url}>
-                  <span className={style.title}>{title}</span>
-                  {count && (
-                    <span className="badge badge-success ml-2">{count}</span>
-                  )}
-                  {icon && (
-                    <span
-                      className={`${icon} ${style.icon} icon-collapsed-hidden`}
-                    />
-                  )}
-                </Link>
-              )}
+            <Link href={url}>
+              <span className={style.title}>{title}</span>
+            </Link>
           </Menu.Item>
         );
       }
@@ -305,4 +286,4 @@ class MenuLeft extends React.Component {
   }
 }
 
-export default connect(state=>state)(MenuLeft);
+export default connect(state => state)(MenuLeft);

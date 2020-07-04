@@ -1,7 +1,7 @@
-import App from 'next/app'
+import App, { AppInitialProps } from 'next/app'
 import React from 'react'
 import { Provider } from 'react-redux'
-import withRedux from 'next-redux-wrapper'
+import withRedux, { AppProps } from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 
 import createStore from '../store';
@@ -9,7 +9,7 @@ import createStore from '../store';
 import '../assets/global.scss'
 import 'antd/dist/antd.css';
 
-class MyApp extends App {
+class MyApp extends React.Component<AppProps & AppInitialProps> {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 

@@ -58,7 +58,8 @@ export async function JWT_login(email, password) {
         if (data.message) {
           return false
         } else {
-          store.set('jwt.token', data.jwt)
+          // TODO: Save old settings to database instead localstorage
+          // store.set('jwt.token', data.jwt)
           return data.data
         }
       })
@@ -66,7 +67,9 @@ export async function JWT_login(email, password) {
 }
 
 export async function JWT_currentAccount() {
-  const jwt = store.get('jwt.token')
+  // TODO: Save old settings to database instead localstorage
+  // const jwt = store.get('jwt.token')
+  const jwt = 'xxx';
   return (
     // replace this with real fetch() method
     fake_fetch('api/currentUser', {
@@ -89,7 +92,9 @@ export async function JWT_currentAccount() {
 }
 
 export async function JWT_logout() {
-  const jwt = store.get('jwt.token')
+  // TODO: Save old settings to database instead localstorage
+  // const jwt = store.get('jwt.token')
+  const jwt = 'xxx'
   return (
     // replace this with real fetch() method
     fake_fetch('api/logout', {
@@ -105,7 +110,8 @@ export async function JWT_logout() {
         if (data.message) {
           return false
         } else {
-          store.remove('jwt.token')
+          // TODO: Save old settings to database instead localstorage
+          // store.remove('jwt.token')
           return true
         }
       })

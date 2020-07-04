@@ -20,7 +20,7 @@ const mapStateToProps = ({ menu, settings, user }) => ({
 @withRouter
 class MenuTop extends React.Component {
   state = {
-    selectedKeys: store.get("app.menu.selectedKeys") || [],
+    selectedKeys: [],
   };
 
   UNSAFE_componentWillMount() {
@@ -52,7 +52,8 @@ class MenuTop extends React.Component {
 
   handleClick = (e) => {
     const { dispatch, isSettingsOpen } = this.props;
-    store.set("app.menu.selectedKeys", [e.key]);
+    // TODO: Save old settings to database instead localstorage
+    // store.set("app.menu.selectedKeys", [e.key]);
     if (e.key === "settings") {
       dispatch({
         type: "settings/CHANGE_SETTING",

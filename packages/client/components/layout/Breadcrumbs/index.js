@@ -53,7 +53,10 @@ class Breadcrumbs extends React.Component {
   }
 
   getBreadcrumb = (props, items) => {
-    const [activeMenuItem, ...path] = this.getPath(items, props.router.location.pathname)
+    // TODO
+    // const pathname = props.router.location.pathname;
+    const pathname = 'xxx';
+    const [activeMenuItem, ...path] = this.getPath(items, pathname)
 
     if (!activeMenuItem) {
       return null
