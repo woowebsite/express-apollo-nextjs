@@ -1,7 +1,7 @@
 /* eslint-disable */
-const withLess = require('@zeit/next-less')
-const withCss = require('@zeit/next-css')
-const withSass = require('@zeit/next-sass')
+// const withLess = require('@zeit/next-less')
+// const withCss = require('@zeit/next-css')
+// const withSass = require('@zeit/next-sass')
 const lessToJS = require('less-vars-to-js')
 const fs = require('fs')
 const path = require('path')
@@ -11,25 +11,23 @@ const themeVariables = lessToJS(
   fs.readFileSync(path.resolve(__dirname, './assets/antd-custom.less'), 'utf8')
 )
 
-module.exports = withCss(withSass(withLess({
+module.exports = {
   lessLoaderOptions: {
     lessOptions: {
       javascriptEnabled: true,
       modifyVars: themeVariables, // make your antd custom effective
     }
   },
-  sassLoaderOptions: {
-    sassOptions: {
-      includePaths: [
-        path.resolve(__dirname, 'antd/dist/antd.css'),
-        path.resolve(__dirname, './assets/global.scss'),
-        path.resolve(__dirname, './components/styles/css/layout.scss'),
-        path.resolve(__dirname, './components/kit-core'),
-        path.resolve(__dirname, './components/kit-vendors'),
-        path.resolve(__dirname, './components/kit-widgets'),
-        path.resolve(__dirname, './components/styles'),
-      ],
-    },
+  sassOptions: {
+    includePaths: [
+      path.resolve(__dirname, 'antd/dist/antd.css'),
+      path.resolve(__dirname, './assets/global.scss'),
+      path.resolve(__dirname, './components/styles/css/layout.scss'),
+      path.resolve(__dirname, './components/kit-core'),
+      path.resolve(__dirname, './components/kit-vendors'),
+      path.resolve(__dirname, './components/kit-widgets'),
+      path.resolve(__dirname, './components/styles'),
+    ],
   },
   cssModules: true,
   webpack: (config, { isServer }) => {
@@ -58,4 +56,4 @@ module.exports = withCss(withSass(withLess({
     }
     return config
   },
-})))
+}
