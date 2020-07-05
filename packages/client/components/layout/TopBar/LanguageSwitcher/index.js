@@ -18,7 +18,6 @@ class LanguageSwitcher extends React.Component {
 
   render() {
     const { locale } = this.props.settings;
-    console.log('this.props', this.props);
     
     const language = locale ? locale.substr(0, 2) : 'en';
     const menu = (
