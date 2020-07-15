@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link } from "next/link";
 // import { injectIntl } from "react-intl";
 import { Dropdown, Input, Tooltip, message } from "antd";
 import { Scrollbars } from "react-custom-scrollbars";

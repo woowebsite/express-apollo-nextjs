@@ -189,7 +189,8 @@ class MenuLeft extends React.Component {
       logo,
       isMenuUnfixed,
       isMenuShadow,
-    } = this.props;
+    } = this.props.settings;
+
     const menuSettings = isMobileView
       ? {
         width: leftMenuWidth,
@@ -231,7 +232,7 @@ class MenuLeft extends React.Component {
           <div className={style.logoContainer}>
             <div className={style.logo}>
               <img
-                src="resources/images/logo.svg"
+                src="./assets/logo.svg"
                 className="mr-2"
                 alt="Clean UI"
               />

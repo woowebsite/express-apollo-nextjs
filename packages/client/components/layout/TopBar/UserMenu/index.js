@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Menu, Dropdown, Avatar, Badge } from "antd";
+import { UserOutlined } from '@ant-design/icons';
 import styles from "./style.module.scss";
 
 class ProfileMenu extends React.Component {
@@ -89,7 +90,7 @@ class ProfileMenu extends React.Component {
               className={styles.avatar}
               shape="square"
               size="large"
-              icon="user"
+              icon={ <UserOutlined />}
             />
           </Badge>
         </div>

@@ -31,7 +31,7 @@ const BasicLayout = (props) => {
           className="site-layout-background"
           style={{ padding: "24px 0" }}
         >
-          <Sider className="site-layout-background" width={200}>
+          <Sider className="site-layout-background" width={256}>
             <Menu
               mode="inline"
               defaultSelectedKeys={["1"]}

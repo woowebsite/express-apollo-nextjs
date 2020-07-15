@@ -171,7 +171,7 @@ class MenuTop extends React.Component {
         <div className={style.logoContainer}>
           <div className={style.logo}>
             <img
-              src="resources/images/logo.svg"
+              src="./assets/logo.svg"
               className="mr-2"
               alt="Clean UI"
             />
