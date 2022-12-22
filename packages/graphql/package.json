@@ -18,7 +18,7 @@
     "express-jwt": "^5.3.1",
     "graphql": "^14.0.2",
     "graphql-relay": "^0.5.5",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "reflect-metadata": "^0.1.12",
     "tslint": "^5.11.0",
     "typescript": "^3.1.2",
